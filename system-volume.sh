@@ -51,6 +51,16 @@ while [ $# -gt 0 ]; do
       echo "Changing System volume level from $vol to $newvol.";
       osascript -e "set volume output volume ($newvol)";
       break ;;
+    "volume"    )
+      vol=`osascript -e "output volume of (get volume settings)"`;
+      if [ $2 = "up" ]; then
+        newvol=$(echo $vol 6.25 | awk '{print $1 + $2}');
+      elif [ $2 = "down" ]; then
+        newvol=$(echo $vol 6.25 | awk '{print $1 - $2}');
+      fi
+      echo "Changing System volume level from $vol to $newvol.";
+      osascript -e "set volume output volume ($newvol)";
+      break ;;
 
     "get"	) echo "Getting the System volume level.";
             osascript -e "output volume of (get volume settings) as integer"
