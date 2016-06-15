@@ -29,6 +29,18 @@ if [ $# = 0 ]; then
   showHelp;
 fi
 
+doVolume () {
+  dir=$1
+  vol=`osascript -e "output volume of (get volume settings)"`;
+  if [ $dir = "up" ]; then
+    newvol=$(echo $vol 6.25 | awk '{print $1 + $2}');
+  elif [ $dir = "down" ]; then
+    newvol=$(echo $vol 6.25 | awk '{print $1 - $2}');
+  fi
+  echo "Changing System volume level from $vol to $newvol.";
+  osascript -e "set volume output volume ($newvol)";
+}
+
 while [ $# -gt 0 ]; do
   arg=$1;
   case $arg in
@@ -42,24 +54,14 @@ while [ $# -gt 0 ]; do
       break ;;
 
     "vol"    )
-      vol=`osascript -e "output volume of (get volume settings)"`;
-      if [ $2 = "up" ]; then
-        newvol=$(echo $vol 6.25 | awk '{print $1 + $2}');
-      elif [ $2 = "down" ]; then
-        newvol=$(echo $vol 6.25 | awk '{print $1 - $2}');
-      fi
-      echo "Changing System volume level from $vol to $newvol.";
-      osascript -e "set volume output volume ($newvol)";
+      dir=$2
+      echo $dir
+      doVolume $dir;
       break ;;
     "volume"    )
-      vol=`osascript -e "output volume of (get volume settings)"`;
-      if [ $2 = "up" ]; then
-        newvol=$(echo $vol 6.25 | awk '{print $1 + $2}');
-      elif [ $2 = "down" ]; then
-        newvol=$(echo $vol 6.25 | awk '{print $1 - $2}');
-      fi
-      echo "Changing System volume level from $vol to $newvol.";
-      osascript -e "set volume output volume ($newvol)";
+      dir=$2
+      echo $dir
+      doVolume $dir;
       break ;;
 
     "get"	) echo "Getting the System volume level.";
