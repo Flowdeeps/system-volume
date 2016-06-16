@@ -7,3 +7,18 @@ With this script you have easy access to mute, unmute, volume up, volume down, v
 ## Installation
 
 I find it's best to keep this somewhere obvious like ~/scripts and then create a symlink to it in /usr/bin or whatever your path is. Alternatively you could make an alias in your .bash_profile and call it from there.
+
+## Usage
+
+$system-volume mute
+$system-volume unmute
+
+$system-volume vol up
+$system-volume vol down
+
+$system-volume volume up
+$system-volume volume down
+
+$system-volume get
+
+$system-volume help
