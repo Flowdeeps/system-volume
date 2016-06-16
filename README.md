@@ -14,13 +14,9 @@ $system-volume mute
 
 $system-volume unmute
 
-$system-volume vol up
+$system-volume up
 
-$system-volume vol down
-
-$system-volume volume up
-
-$system-volume volume down
+$system-volume down
 
 $system-volume get
 

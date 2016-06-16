@@ -41,11 +41,11 @@ while [ $# -gt 0 ]; do
       osascript -e 'tell application "System Events" to set volume without output muted'
       break ;;
 
-    "vol" | "volume"  )
+    "up" | "down"  )
       vol=`osascript -e "output volume of (get volume settings)"`;
-      if [ $2 = "up" ]; then
+      if [ $1 = "up" ]; then
         newvol=$(echo $vol 6.25 | awk '{print $1 + $2}');
-      elif [ $2 = "down" ]; then
+      elif [ $1 = "down" ]; then
         newvol=$(echo $vol 6.25 | awk '{print $1 - $2}');
       fi
       echo "Changing System volume level from $vol to $newvol.";
