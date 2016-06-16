@@ -1,6 +1,6 @@
 # Mac OS X System Volume Control
 
-If you're anything like me then you like to have control over your machines on your home network from whatever sofa you happen to be lounging around in your tattered bathing gown in.
+If you're anything like me then you like to have control over your machines on your home network from whatever sofa you happen to be lounging around on in your tattered bathing gown.
 
 With this script you have easy access to mute, unmute, volume up, volume down, volume n over your ssh connection. Or you may find it convenient not to break out of your terminal whilst working. The choice is quite literally ~~limitless~~ limited.
 
