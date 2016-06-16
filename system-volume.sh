@@ -29,7 +29,6 @@ if [ $# = 0 ]; then
   showHelp;
 fi
 
-
 while [ $# -gt 0 ]; do
   arg=$1;
   case $arg in
