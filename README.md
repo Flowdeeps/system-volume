@@ -11,12 +11,15 @@ I find it's best to keep this somewhere obvious like ~/scripts and then create a
 ## Usage
 
 $system-volume mute
+
 $system-volume unmute
 
 $system-volume vol up
+
 $system-volume vol down
 
 $system-volume volume up
+
 $system-volume volume down
 
 $system-volume get
